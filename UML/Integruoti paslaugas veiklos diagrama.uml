@@ -1,0 +1,26 @@
+@startuml
+
+|TŠPT|
+start
+:Prisijungiama prie SAVS internetinės sąsajos;
+|SAVS|
+if (Tikrinama autentifikacija) then (Neautentifikuotas)
+|TŠPT|
+:Neprileidžiama prie TŠPT panelės;
+stop
+else (Autentifikuotas)
+|SAVS|
+:Pateikiama TŠPT panelės navigacija;
+|TŠPT|
+:Pasirenkama paslaugų integracija;
+|SAVS|
+:Pateikiama paslaugų integracijos forma;
+|TŠPT|
+:Nurodomi teikiami valdikliai;
+:Nurodoma teikiama informacija;
+|SAVS|
+:Informacija patvirtinama;
+:Paslauga integruojama;
+stop
+
+@enduml
