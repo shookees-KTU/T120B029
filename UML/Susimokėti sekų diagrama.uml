@@ -1,0 +1,30 @@
+@startuml
+
+boundary "Mokėjimo aparatas" as MokejimoAparatas
+control Valdiklis
+control "SAVS informacija" as SAVSInformacija
+entity Žurnalas
+
+MokejimoAparatas -> MokejimoAparatas: numeris = gautiMokėtojoMašinosNumerį()
+MokejimoAparatas -> Valdiklis: suma =gautiMokėjimoSumą(numeris)
+Valdiklis -> SAVSInformacija: gautiNumerioInformaciją(numeris)
+SAVSInformacija -> Žurnalas: įvažiavimoLaikas = gautiNumerioĮvažiavimoLaiką(numeris)
+SAVSInformacija <-- Žurnalas: įvažiavimoLaikas = gautiNumerioĮvažiavimoLaiką(numeris)
+SAVSInformacija -> SAVSInformacija: kaina = apskaičiuotiKainą(įvažiavimoLaikas, esamasLaikas)
+Valdiklis <-- SAVSInformacija: gautiNumerioInformaciją(numeris)
+MokejimoAparatas <-- Valdiklis: suma = gautiMokėjimoSumą(numeris)
+MokejimoAparatas -> MokejimoAparatas: pateiktiStovėjimoKainą(suma)
+loop sumokėta nepakankamai pinigų arba praėjo 60 sekundžių
+MokejimoAparatas -> MokejimoAparatas: priimtiPinigus()
+end
+alt "Nepakankama suma"
+MokejimoAparatas -> MokejimoAparatas: grąžinįSumokėtusPinigus()
+else "Pakankama suma"
+par
+MokejimoAparatas -> MokejimoAparatas: duotiGrąžą()
+MokejimoAparatas -> Valdiklis: sumokėtaSuma(numeris)
+Valdiklis -> Žurnalas: įrašyti(laikas, numeris) 
+end
+end
+
+@enduml
