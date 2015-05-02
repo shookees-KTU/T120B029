@@ -1,0 +1,3 @@
+[submodule "plantuml-code-generator"]
+	path = plantuml-code-generator
+	url = https://github.com/bafolts/plantuml-code-generator
