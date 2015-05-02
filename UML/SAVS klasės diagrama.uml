@@ -1,0 +1,54 @@
+@startuml
+
+/'Apsirašome visas klases iš anksto'/
+/'Agentai'/
+class "SAVS"
+class "Klientas"
+class "TŠPT"
+class "Administratorius"
+
+/'SAVS susiję'/
+class "SAVS Informacija" as SAVSInformacija
+class "Žurnalas"
+class "Tinklas į SAVS" as TinklasISAVS
+
+/' Klientas susiję'/
+class "Bendra panelė" as BendraPanele
+class "Kamera"
+class "Mokėjimo aparatas" as MokejimoAparatas
+class "Šlagbaumas"
+
+/' Administratorius susiję '/
+class "Administratoriaus panelė" as AdminPanele
+
+/' TŠPT susiję '/
+class "TŠPT panelė" as TSPTPanele
+
+/' Jungiamieji '/
+class "Valdiklis"
+class "Internetinė sąsaja" as InternetineSasaja
+class "Identifikacija"
+
+/' Dvigubi brūkšniai tam, kad gražiai būtų išdėstyta '/
+/' Taip pat nuoseklus judėjimas padeda normalesniam atvaizdavimui'/
+SAVS - TinklasISAVS
+SAVS -- SAVSInformacija
+SAVS -- Žurnalas
+Žurnalas - SAVSInformacija
+SAVSInformacija -- Valdiklis
+Valdiklis -- Šlagbaumas
+Valdiklis -- MokejimoAparatas
+Valdiklis -- Kamera
+Šlagbaumas -- Klientas
+Kamera -- Klientas
+MokejimoAparatas -- Klientas
+Klientas - BendraPanele
+BendraPanele - InternetineSasaja
+InternetineSasaja -- TinklasISAVS
+InternetineSasaja -- Identifikacija
+Identifikacija -- AdminPanele
+Identifikacija -- TSPTPanele
+AdminPanele -- Administratorius
+TSPTPanele -- TŠPT
+
+@enduml
