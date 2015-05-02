@@ -1,0 +1,14 @@
+@startuml
+
+|Klientas|
+start
+:Prisijungiama prie SAVS internetinės sąsajos;
+|SAVS|
+:Pateikiama SAVS internetinės sąsajos navigacija;
+|Klientas|
+:Pasirenkama informacija apie aikštelę;
+|SAVS|
+:Pateikiama informacija apie stovėjimo aikštelės būseną ir užimtumą;
+stop
+
+@enduml

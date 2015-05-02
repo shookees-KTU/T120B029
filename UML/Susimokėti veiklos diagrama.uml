@@ -1,0 +1,23 @@
+@startuml
+
+|Klientas|
+start
+:Nurodomas automobilio numeris;
+|SAVS|
+:Pateikiama informacija apie stovėtą laiką ir kainą;
+|Klientas|
+if (Pasirenkamas susimokėjimo būdas) then (Susimokėti internetu)
+:Pasirenkama internetinė bankininkystė;
+else (Susimokėti aikštelėje esančiu aparatu)
+:Įdedami pinigai;
+|SAVS|
+:Suskaičiuojami įdėti pinigai;
+fork
+:Duodama grąža;
+fork again
+:Duodamas čekis;
+end fork
+endif
+stop
+
+@enduml

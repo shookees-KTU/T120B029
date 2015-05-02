@@ -1,0 +1,20 @@
+@startuml
+
+|Klientas|
+start
+:Sustoja prie įvažiavimo šlagbaumo;
+|SAVS|
+:Kamera nustato automobilio numerius;
+if (Numeriai uždrausti) then (Taip)
+|Klientas|
+:Klientas neįvažiuoja;
+stop
+else (Ne)
+|SAVS|
+:Šlagbaumas atsidaro;
+|Klientas|
+:Klientas įvažiuoja;
+stop
+endif
+
+@enduml

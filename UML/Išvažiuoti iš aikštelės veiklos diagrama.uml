@@ -1,0 +1,21 @@
+@startuml
+
+|Klientas|
+start
+:Sustoja prie išvažiavimo šlagbaumo;
+|SAVS|
+:Kamera nustato automobilio numerius;
+/'Gražiau atvaizduojama, kai pirmiau - ne'/
+if (Automobilio stovėjimas apmokėtas) then (Ne)
+|Klientas|
+:Klientas neišvažiuoja;
+stop
+else (Taip)
+|SAVS|
+:Šlagbaumas atsidaro;
+|Klientas|
+:Klientas išvažiuoja;
+stop
+endif
+
+@enduml

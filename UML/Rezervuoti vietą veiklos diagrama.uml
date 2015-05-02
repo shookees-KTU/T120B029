@@ -1,0 +1,26 @@
+@startuml
+
+|Klientas|
+start
+:Prisijungiama prie SAVS internetinės sąsajos;
+|SAVS|
+:Pateikiama SAVS internetinės sąsajos navigacija;
+|Klientas|
+:Pasirenkama vietos rezervacija;
+:Įvedamas automobilio numeris;
+|SAVS|
+fork
+:Patikrinama ar galima rezervuoti;
+fork again
+:Patikrinama ar numeris nėra uždraustų sąraše;
+fork end
+if (Galima rezervuoti) then (Taip)
+:Rezervacija patvirtinama;
+else (Ne)
+:Rezervacija atmetama;
+endif
+|Klientas|
+:Klientas gauna informaciją apie rezervaciją;
+stop
+
+@enduml
