@@ -1,0 +1,10 @@
+@startuml
+
+/'Ilgokas TŠPT pavadinimas, tiesiog trumpiname'/
+:Trečios šalies paslaugų tiekėjas: as TŠPT
+
+TŠPT --> (Naudoti įrangą)
+TŠPT --> (Integruoti paslaugas)
+TŠPT --> (Naudoti aikštelės informaciją)
+
+@enduml
