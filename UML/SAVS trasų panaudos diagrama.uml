@@ -1,0 +1,50 @@
+@startuml
+
+/'Administratoriaus'/
+(Peržiūrėti žurnalą) << specification >> as perziuretiZurnala
+(Apriboti klientus) << specification >> as apribotiKlientus
+(Peržiūrėti TŠPT) << specification >> as perziurestiTSPT
+
+/'Kliento'/
+(Įvažiuoti į aikštelę) << specification >> as ivaziuotiIAikstele
+(Patikrinti aikštelės būseną) << specification >> as patikrintiAikstelesBusena
+(Rezervuoti vietą) << specification >> as rezervuotiVieta
+(Išvažiuoti iš aikštelės) << specification >> as isvaziuotiIsAiksteles
+(Susimokėti) << specification >> as susimoketi
+
+/'TŠPT'/
+(Naudoti įrangą) << specification >> as naudotiIranga
+(Integruoti paslaugas) << specification >> as integruotiPaslaugas
+(Naudoti aikštelės informaciją) << specification >> as naudotiAikstelesInfo
+
+/' Sąsajos tarp specifikacijų '/
+isvaziuotiIsAiksteles <. susimoketi : include
+naudotiIranga .> integruotiPaslaugas : extend
+integruotiPaslaugas <. naudotiAikstelesInfo : extend
+
+/' Realizacijos '/
+
+/' Realios '/
+ivaziuotiIAikstele --> (Įvažiuoti) : << realization >>
+isvaziuotiIsAiksteles --> (Išvažiuoti) : << realization >>
+susimoketi --> (Susimokėti) : << realization >>
+(Išvažiuoti) <. (Susimokėti) : include
+
+/' Neįgyvendinamos dėl didelio masto vienam žmogui '/
+patikrintiAikstelesBusena --> (Tikrinti būseną) : << realization >>
+rezervuotiVieta --> (Rezervuoti) : << realization >>
+
+perziuretiZurnala --> (Peržiūrėti žurnalą) : << realization >>
+apribotiKlientus --> (Riboti) : << realization >>
+perziurestiTSPT --> (Peržiūrėti TŠPT) : << realization >>
+
+integruotiPaslaugas --> (Integruoti paslaugas) : << realization >>
+naudotiIranga --> (Naudoti aikštelės įrangą) : << realization >>
+naudotiAikstelesInfo --> (Naudoti aikštelės informaciją) : << realization >>
+
+/' Sąsajos tarp realizacijų '/
+(Naudoti aikštelės įrangą) .>  (Integruoti paslaugas) : extend
+(Integruoti paslaugas) <. (Naudoti aikštelės informaciją) : extend
+
+
+@enduml
