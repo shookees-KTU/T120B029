@@ -1,0 +1,23 @@
+@startuml
+
+|Administratorius|
+start
+:Prisijungiama prie SAVS internetinės sąsajos;
+|SAVS|
+if (Tikrinama autentifikacija) then (Neautentifikuotas)
+|Administratorius|
+:Neprileidžiama prie administratoriaus panelės;
+stop
+else (Autentifikuotas)
+|SAVS|
+:Pateikiama administratoriaus panelės navigacija;
+|Administratorius|
+:Pasirenkama žurnalo peržiūra;
+|SAVS|
+:Pateikiamas žurnalas;
+|Administratorius|
+:Peržiūrimas aikštelės, klientų ir TŠPT žurnalas;
+stop
+endif
+
+@enduml

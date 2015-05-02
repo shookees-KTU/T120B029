@@ -1,0 +1,28 @@
+@startuml
+
+|Administratorius|
+start
+:Prisijungiama prie SAVS internetinės sąsajos;
+|SAVS|
+if (Tikrinama autentifikacija) then (Neautentifikuotas)
+|Administratorius|
+:Neprileidžiama prie administratoriaus panelės;
+stop
+else (Autentifikuotas)
+|SAVS|
+:Pateikiama administratoriaus panelės navigacija;
+|Administratorius|
+:Pasirenkama TŠPT peržiūra;
+|SAVS|
+:Pateikiamas TŠPT sąrašas;  
+|Administratorius|
+if (Pasirenkamas veiksmas) then (Pridėti naują TŠPT)
+|SAVS|
+:Pridedama nauja TŠPT paskyra;
+stop
+else (Pašalinti egzsituojantį TŠPT)
+:Pašalinama TŠTP paskyra;
+stop
+endif
+
+@enduml

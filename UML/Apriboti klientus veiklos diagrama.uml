@@ -1,0 +1,22 @@
+@startuml
+
+|Administratorius|
+start
+:Prisijungiama prie SAVS internetinės sąsajos;
+|SAVS|
+if (Tikrinama autentifikacija) then (Neautentifikuotas)
+|Administratorius|
+:Neprileidžiama prie administratoriaus panelės;
+stop
+else (Autentifikuotas)
+|SAVS|
+:Pateikiama administratoriaus panelės navigacija;
+|Administratorius|
+:Pasirenkamas klientų apribojimas;
+:Nurodomas automobilio numeris;
+|SAVS|
+:Išsaugomas apribotas numeris;
+stop
+endif
+
+@enduml
