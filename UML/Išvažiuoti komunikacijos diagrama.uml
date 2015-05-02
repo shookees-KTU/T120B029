@@ -1,0 +1,20 @@
+@startuml
+/' Kadangi komunikacijos diagramos PlantUML pakete nėra palaikomos, alternatyviai kuriamos sekų diagramos'/
+
+autonumber
+
+control Valdiklis
+boundary Kamera
+boundary Šlagbaumas
+entity "SAVS informacija" as SAVSInformacija
+
+Valdiklis -> Kamera : numeris = atpažintįNumerį()
+Valdiklis <-- Kamera : numeris = atpažintįNumerį()
+Valdiklis -> SAVSInformacija : gautiNumerioInformaciją(numeris)
+Valdiklis <-- SAVSInformacija : gautiNumerioInformaciją(numeris)
+alt numeris apmokėtas
+Valdiklis -> Šlagbaumas : atidarytiŠlagbaumą()
+end
+
+
+@enduml

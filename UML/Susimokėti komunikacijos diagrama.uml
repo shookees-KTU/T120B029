@@ -1,0 +1,27 @@
+@startuml
+/' Kadangi komunikacijos diagramos PlantUML pakete nėra palaikomos, alternatyviai kuriamos sekų diagramos'/
+
+autonumber
+
+control Valdiklis
+boundary "Mokėjimo aparatas" as MokejimoAparatas
+entity "SAVS informacija" as SAVSInformacija
+
+MokejimoAparatas -> Valdiklis : suma = gautiMokėjimoSumą(numeris)
+Valdiklis -> SAVSInformacija : kaina = apskaičiuotiKainą(numeris)
+Valdiklis <-- SAVSInformacija : kaina = apskaičiuotiKainą(numeris)
+MokejimoAparatas <-- Valdiklis : suma = kaina
+MokejimoAparatas -> MokejimoAparatas : pateiktiMokėjimoSumą(suma)
+MokejimoAparatas -> MokejimoAparatas : patikrintiSumokėtąSumą()
+alt Nepakankama suma
+MokejimoAparatas -> MokejimoAparatas : grąžintiĮdėtusPinigus()
+else Pakankama suma
+MokejimoAparatas -> MokejimoAparatas : duotiGrąžą()
+end
+MokejimoAparatas -> Valdiklis : numerisApmokėtas(numeris)
+Valdiklis -> SAVSInformacija : įrašytiKaipSusimokėjusį(numeris)
+
+
+
+
+@enduml
