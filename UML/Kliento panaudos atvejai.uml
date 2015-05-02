@@ -1,10 +1,10 @@
 @startuml
 
 /' Įprastai sugeneruoja viską vienoje eilutėje, vizualumui pridėkime, kad rodytų šonus'/
-:Klientas: --> (Įvažiuoti į aikštelę)
-:Klientas: --> (Patikrinti aikštelės būseną)
-:Klientas: --> (Rezervuoti vietą)
-:Klientas: -> (Išvažiuoti iš aikštelės)
-(Išvažiuoti iš aikštelės) .> (Susimokėti) : include
+:Klientas: --> (Įvažiuoti į aikštelę) << specification >>
+:Klientas: --> (Patikrinti aikštelės būseną) << specification >>
+:Klientas: --> (Rezervuoti vietą) << specification >>
+:Klientas: -> (Išvažiuoti iš aikštelės) << specification >>
+(Išvažiuoti iš aikštelės) .> (Susimokėti) << specification >> : include 
 
 @enduml

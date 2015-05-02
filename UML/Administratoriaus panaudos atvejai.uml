@@ -1,7 +1,7 @@
 @startuml
 
-:Administratorius: --> (Peržiūrėti žurnalą)
-:Administratorius: --> (Apriboti klientus)
-:Administratorius: --> (Peržiūrėti TŠPT)
+:Administratorius: --> (Peržiūrėti žurnalą) << specification >>
+:Administratorius: --> (Apriboti klientus) << specification >>
+:Administratorius: --> (Peržiūrėti TŠPT) << specification >>
 
 @enduml
