@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+
+actor Klientas
+actor SAVS
+
+rectangle "SAVS sistema" {
+Klientas -- (Išvažiuoti)
+Klientas -- (Įvažiuoti)
+(Išvažiuoti) <.. (Susimokėti) : include
+(Įvažiuoti) -- SAVS
+(Susimokėti) -- SAVS
+}
+
+@enduml

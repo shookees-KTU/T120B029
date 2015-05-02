@@ -1,0 +1,6 @@
+@startuml
+
+/'Nėra kitokio žymėjimo galimybės. Naudojami agentai, kurie realiausiai atspindi sistemas'/
+:SAVS: <.. :Internetinė SAVS:
+
+@enduml
