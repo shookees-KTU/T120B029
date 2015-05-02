@@ -1,0 +1,19 @@
+@startuml
+
+state "Internetinės sąsajos naudojimas" as internetineSasaja
+state "Valdiklio naudojimas" as valdiklioNaudojimas
+
+[*] -> Laukimas
+Laukimas --> internetineSasaja : Interakcija su vartotoju\nĮrašyti į žurnalą
+state internetineSasaja {
+    state "Internetinio SAVS būsenų diagrama" as internetineDiagrama
+}
+internetineSasaja --> Laukimas : Interakcija baigta
+
+Laukimas --> valdiklioNaudojimas : Interakcija su vartotoju\nĮrašyti į žurnalą
+state valdiklioNaudojimas {
+    state "Valdiklio būsenų diagrama" as valdiklioDiagrama
+}
+valdiklioNaudojimas --> Laukimas : Interakcija baigta
+
+@enduml

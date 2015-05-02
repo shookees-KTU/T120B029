@@ -1,0 +1,12 @@
+@startuml
+
+state "Automobilio tikrinimas" as automobilioTikrinimas
+
+[*] -> Laukimas
+Laukimas --> Susimokėjimas : Klientas apmoka mokėjimo aparatu\ngautiMokėjimoSumą(numeris)
+Susimokėjimas --> Laukimas : Apmokėta už stovėjima\nįrašytiApmokėjimą(numeris)
+Laukimas --> automobilioTikrinimas : Kamera atpažino numerį
+automobilioTikrinimas --> Laukimas : Numeris neleidžiamas
+automobilioTikrinimas --> Laukimas : Numeris leidžiamas\natidarytiŠlagbaumą 
+
+@enduml
