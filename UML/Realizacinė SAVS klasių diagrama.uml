@@ -1,0 +1,37 @@
+@startuml
+
+package "SAVS" {
+    class "SAVS Informacija" as SAVSInformacija
+    class "Žurnalas"
+    class "Kamera"
+    class "Mokėjimo aparatas" as MokejimoAparatas
+    class "Šlagbaumas"
+    class "Valdiklis"
+}
+
+package "SAVS.net" {
+    class "Tinklas į SAVS" as TinklasISAVS
+    class "Administratoriaus panelė" as AdminPanele
+    class "Bendra panelė" as BendraPanele
+    class "TŠPT panelė" as TSPTPanele
+    class "Internetinė sąsaja" as InternetineSasaja
+    class "Identifikacija"
+}
+
+class "SAVS"
+SAVS *-- SAVSInformacija
+SAVS *-- TinklasISAVS
+
+Žurnalas -* SAVSInformacija
+SAVSInformacija --* Valdiklis
+Valdiklis *-- Šlagbaumas
+Valdiklis *-- MokejimoAparatas
+Valdiklis *-- Kamera
+
+BendraPanele .|> InternetineSasaja
+InternetineSasaja ..|> TinklasISAVS
+InternetineSasaja -- Identifikacija
+Identifikacija <|.. AdminPanele
+Identifikacija <|.. TSPTPanele
+
+@enduml
